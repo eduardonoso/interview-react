@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, {useState,useEffect} from "react";
+import Header from "./components/layout/Header";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 import './App.css';
 
+import AppContext from './components/AppContext';
+import Authenticated from "./components/layout/Authenticated";
+import Unauthenticated from "./components/layout/Unauthenticated";
+import {userToken as userTokenStatic} from "./utils/token.js";
+
 function App() {
+
+  const [userToken, setUserToken] = useState();
+
+  const appStore = {
+    userToken: userToken,
+    setUserToken
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={appStore}>
+      <div className="App">
+        <Router>
+          {userToken ? <Authenticated/> : <Unauthenticated/>}
+        </Router>
+      </div>
+    </AppContext.Provider>
   );
 }
 
