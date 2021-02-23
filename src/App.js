@@ -10,11 +10,11 @@ import './App.css';
 import AppContext from './components/AppContext';
 import Authenticated from "./components/layout/Authenticated";
 import Unauthenticated from "./components/layout/Unauthenticated";
-import {userToken as userTokenStatic} from "./utils/token.js";
+import {userToken as USER_TOKEN} from "./utils/token.js";
 
 function App() {
 
-  const [userToken, setUserToken] = useState();
+  const [userToken, setUserToken] = useState(USER_TOKEN);
 
   const appContext = {
     userToken: userToken,

@@ -7,7 +7,7 @@ const Register = () => {
 
     <ol style={{textAlign: 'left'}}>
       <li>
-        Implement a Registration form using the api.js register function
+        Implement a Registration form using the imported api.js register() function
       </li>
       <li>
         Add validation with the following rules. Display each inputs error underneath the input if an error exists

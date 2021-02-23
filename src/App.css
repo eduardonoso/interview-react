@@ -53,3 +53,7 @@
 .headerLinks a {
   padding: 8px;
 }
+
+li {
+  margin-bottom: 16px;
+}

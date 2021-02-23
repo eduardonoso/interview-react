@@ -9,16 +9,23 @@ import {
 import Login from "../Login";
 import Register from "../Register";
 import Home from "../Home";
+import TaskList from "../TaskList";
+import Body from "./Body";
+import Clock from "../Clock";
 
 
 const Unauthenticated = () => {
   return <>
     <Header/>
-    <Switch>
-      <Route path="/login" component={() => <Login/>}/>
-      <Route path="/register" component={() => <Register/>}/>
-      <Route path="/" component={() => <Home/>}/>
-    </Switch>
+    <Body>
+      <Switch>
+        <Route path="/login" component={() => <Login/>}/>
+        <Route path="/register" component={() => <Register/>}/>
+        <Route path="/tasks" component={() => <TaskList/>}/>
+        <Route path="/clock" component={() => <Clock/>}/>
+        <Route path="/" component={() => <Home/>}/>
+      </Switch>
+    </Body>
   </>
 };
 
