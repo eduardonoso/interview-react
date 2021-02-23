@@ -12,7 +12,7 @@ const HeaderAuth = () => {
   };
 
   return <div className="header" style={{display: 'flex'}}>
-    <h3>Sunrise Interview</h3>
+    <h3>Sunrise Integration React Assessment</h3>
     <div className="headerLinks">
       <Link to="/tasks">Tasks</Link>
       <Link to="/logout" onClick={handleLogout}>Logout</Link>
