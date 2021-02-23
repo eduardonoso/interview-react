@@ -59,13 +59,20 @@ export const register = async(user, password) => {
     });
   }
 
-  const regex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%* #=+\(\)\^?&])[A-Za-z\d$@$!%* #=+\(\)\^?&]{8,}$";
-  if(!password.match(regex)){
+  if(password.length < 8){
     errors.push({
       message: 'Password must be at least 8 chars',
       type: 'password'
     });
   }
+
+  // const regex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%* #=+\(\)\^?&])[A-Za-z\d$@$!%* #=+\(\)\^?&]{8,}$";
+  // if(!password.match(regex)){
+  //   errors.push({
+  //     message: 'Password must be at least 8 chars and contain a number and letter',
+  //     type: 'password'
+  //   });
+  // }
 
   if(errors.length){
     return {errors};
@@ -80,11 +87,19 @@ export const fetchTasks = async(token) => {
   console.log('GET /tasks', token);
 
   const errors = [];
-  if(token !== userToken){
+
+  if(!token){
     errors.push({
-      message: 'Unauthorized',
+      message: 'Missing token',
       type: 'unauthorized'
     });
+  } else {
+    if (token !== userToken) {
+      errors.push({
+        message: 'Unauthorized',
+        type: 'unauthorized'
+      });
+    }
   }
 
   if(errors.length){

@@ -14,6 +14,7 @@ const Register = () => {
         <ul>
           <li>User: must end in a .com</li>
           <li>Password: require at least 8 chars</li>
+          <li>BONUS: Password: require at least 8 chars and must contain a number and letter</li>
         </ul>
       </li>
     </ol>
