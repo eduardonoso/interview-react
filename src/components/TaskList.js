@@ -1,18 +1,6 @@
-import {useState, useEffect, useContext} from 'react';
 import {fetchTasks} from "../utils/api";
-import AppContext from "./AppContext";
 
 const TaskList = () => {
-
-  const appContext = useContext(AppContext);
-
-  const [tasks, setTasks] = useState();
-
-  useEffect(() => {
-    fetchTasks(appContext.userToken).then(res => {
-      setTasks(res.tasks);
-    });
-  }, []);
 
   return <div>
     <h2>Tasks</h2>
@@ -30,13 +18,6 @@ const TaskList = () => {
       <li>List the users task titles and descriptions, sorted by priority ascending</li>
     </ol>
 
-    {tasks && tasks.map(task => {
-      return <div style={{marginBottom: 16}}>
-        <div>{task.title}</div>
-        <div>{task.description}</div>
-        <div>{task.priority}</div>
-      </div>
-    })}
   </div>
 };
 

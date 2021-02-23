@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from "react";
-import Header from "./components/layout/Header";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,13 +16,13 @@ function App() {
 
   const [userToken, setUserToken] = useState();
 
-  const appStore = {
+  const appContext = {
     userToken: userToken,
     setUserToken
   };
 
   return (
-    <AppContext.Provider value={appStore}>
+    <AppContext.Provider value={appContext}>
       <div className="App">
         <Router>
           {userToken ? <Authenticated/> : <Unauthenticated/>}

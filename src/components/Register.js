@@ -1,15 +1,6 @@
-import { useState, useEffect } from 'react';
 import {register} from "../utils/api";
 
 const Register = () => {
-
-  const [user, setUser] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    register(user, password).then(res => console.log(res));
-  };
 
   return <div>
     <h2>Register</h2>
@@ -26,14 +17,6 @@ const Register = () => {
         </ul>
       </li>
     </ol>
-
-    <form>
-      <input type="text" name="user" onChange={(event) => setUser(event.target.value)}/>
-      <br/>
-      <input type="password" name="password" onChange={(event) => setPassword(event.target.value)}/>
-      <br/>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
 
   </div>
 };
