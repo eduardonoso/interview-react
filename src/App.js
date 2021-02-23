@@ -1,8 +1,6 @@
-import React, {useState,useEffect} from "react";
+import React, {useState} from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
+  BrowserRouter as Router
 } from 'react-router-dom';
 
 import './App.css';
@@ -14,7 +12,7 @@ import {userToken as USER_TOKEN} from "./utils/token.js";
 
 function App() {
 
-  const [userToken, setUserToken] = useState(USER_TOKEN);
+  const [userToken, setUserToken] = useState();
 
   const appContext = {
     userToken: userToken,

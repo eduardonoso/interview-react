@@ -1,7 +1,6 @@
-import {useState} from "react";
+import React from "react";
 
 const Clock = () => {
-  const [date, setDate] = useState(new Date().toLocaleTimeString());
 
   return (
     <div>
@@ -9,11 +8,11 @@ const Clock = () => {
 
       <ol style={{textAlign: 'left'}}>
         <li>
-          The clock is broken and only shows the time the view was loaded. Update the clock so it shows the current live time
+          The clock is broken and only shows the time the view was loaded. Fix the clock so it shows the current live time.
         </li>
       </ol>
 
-      <h3>{date}</h3>
+      <h3>{new Date().toLocaleTimeString()}</h3>
     </div>
   );
 };
